@@ -1,32 +1,21 @@
-variable "region" {
-  type = string
+variable "project_id" {
+  description = "The Google Cloud Project ID where resources will be deployed"
+  type        = string
 }
 
-variable "project_id" {
-  type = string
+variable "region" {
+  description = "The Google Cloud region/location for the resources"
+  type        = string
+  default     = "us-central1"
+}
+
+variable "service_name" {
+  description = "The name of the Cloud Run service"
+  type        = string
+  default     = "gcs-mount-demo"
 }
 
 variable "bucket_name" {
-  type = string
-}
-
-variable "bucket_iam_members" {
-  type = list(object({ role : string }))
-}
-
-variable "bucket_force_destroy" {
-    type = bool
-    default = true
-}
-
-variable "cloud_run_service_name" {
-  type = string
-}
-
-variable "cloud_run_containers" {
-  type = list(object({ container_image : string, volume_mounts : list(object({ name : string, mount_path : string })) }))
-}
-
-variable "cloud_run_volumes" {
-  type = list(object({ name : string }))
+  description = "The globally unique name for the GCS bucket"
+  type        = string
 }
