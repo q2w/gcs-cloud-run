@@ -77,6 +77,12 @@ resource "google_cloud_run_service_iam_member" "public_access" {
   member   = "allUsers"
 }
 
+module loc_mod {
+  source = "./modules/mod1"
+  service_name = "${var.service_name}-1"
+  region = var.region
+}
+
 # Output the URL of the deployed service
 output "cloud_run_url" {
   value       = google_cloud_run_v2_service.demo_service.uri
