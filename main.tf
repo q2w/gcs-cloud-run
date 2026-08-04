@@ -8,7 +8,7 @@ module "bucket" {
 }
 
 module "cloud_run" {
-  source       = "github.com/q2w/terraform-google-cloud-run//modules/v2?ref=gcs"
+  source       = "./modules/mod1"
   project_id   = var.project_id
   location     = var.region
   service_name = var.cloud_run_service_name
